@@ -50,7 +50,7 @@ body {
   padding: 20px 30px 35px;
   width: 350px;
   border-radius: 2px;
-  box-shadow: 0 0 5px 5px lightgray;
+  box-shadow: 0 0 5px 5px lightgrey;
   background-color: white;
 }
 
@@ -65,15 +65,21 @@ body {
   color: white;
   text-align: center;
   font-weight: bold;
+  border: none;
+  border-radius: 2px;
 }
 
 .main-button {
   background-color: forestgreen;
 }
 
-.main-form__button {
+.form__button {
   margin: auto;
   background-color: steelblue;
+}
+
+.form__button:disabled {
+  background-color: lightblue;
 }
 
 .modal__close-button {
@@ -92,13 +98,14 @@ body {
   top: 0px;
   left: 4px;
   content: "\00D7";
-  color: gray;
+  color: grey;
   font-size: 24px;
   line-height: 22px;
 }
 
-.modal__close-button:hover {
-  box-shadow: 0 0 3px 3px lightgray;
+.modal__close-button:hover,
+.modal__close-button:focus {
+  box-shadow: 0 0 3px 3px lightgrey;
 }
 
 a {
@@ -106,20 +113,12 @@ a {
   color: steelblue;
 }
 
-.main-form__list {
+.form__list {
   list-style: none;
   padding: 0;
 }
 
-.main-form__wrapper {
-  margin-bottom: 5px;
-}
-
-.main-form__wrapper--checkbox-wrapper {
-  margin-top: 15px;
-}
-
-.main-form__label {
+.form__label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
@@ -129,7 +128,7 @@ a {
   font-size: 12px;
 }
 
-.main-form__input {
+.form__input {
   box-sizing: border-box;
   width: 100%;
   padding: 5px 15px;
@@ -140,7 +139,15 @@ a {
   margin-bottom: 5px;
 }
 
-.main-form__input--not-valid {
+.form__input:focus:not(.form__input--invalid) {
+  border-color: darkgrey;
+}
+
+.form__input:invalid {
+  box-shadow: none;
+}
+
+.form__input--invalid {
   border-color: firebrick;
 }
 
@@ -149,60 +156,69 @@ input[type="checkbox"] {
   margin-bottom: 15px;
 }
 
-.main-form__input--without-note {
-  margin-bottom: 30px;
-}
-
-.main-form__input-note {
-  margin: 0;
-  color: gray;
-  font-size: 12px;
-}
-
-.main-form__input-note--hidden {
-  font-size: 10px;
-  visibility: hidden;
-  color: firebrick;
-}
-
-.main-form__note-list {
+.form__message-wrapper {
   list-style: none;
-  margin-bottom: 30px;
   padding: 0;
+  margin-bottom: 20px;
 }
 
-.main-form__note-item {
-  position: relative;
-  padding-left: 15px;
+.form__message {
+  position: relative;   /* для псевдоэлементов */
+  color: grey;
+  font-size: 10px;
 }
 
-.main-form__note-item--valid {
-  color: forestgreen;
-}
-
-.main-form__note-item--not-valid {
+.hidden-message {
   color: firebrick;
+  visibility: hidden;
 }
 
-.main-form__note-item::before {
+.hidden-message--valid {
+  visibility: hidden;
+}
+
+.hidden-message--invalid {
+  visibility: visible;
+}
+
+.list-message {
+  padding-left: 15px;
+  font-size: 10px;
+}
+
+.list-message::before {
   position: absolute;
   top: 2px;
   left: 0;
   content: "";
   width: 9px;
   height: 9px;
-  border: 1px solid gray;
+  border: 1px solid grey;
   border-radius: 50%;
   font-size: 10px;
   line-height: 10px;
 }
 
-.main-form__note-item--valid::before {
+.list-message--valid {
+  color: forestgreen;
+}
+
+.list-message--valid::before {
   content: "\2714";
   border-color: forestgreen;
 }
 
-.main-form__note-item--not-valid::before {
+.list-message--invalid {
+  color: firebrick;
+}
+
+.list-message--invalid::before {
   content: "\2716";
   border-color: firebrick;
+}
+
+.text-message {
+  margin: 0;
+  color: grey;
+  font-size: 12px;
 }

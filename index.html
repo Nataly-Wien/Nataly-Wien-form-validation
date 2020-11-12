@@ -13,7 +13,7 @@
     <button class="main-button button" type="button">Регистрация</button>
   </main>
 
-  <section class="modal modal--show overlay">
+  <section class="modal overlay">
     <div class="modal-window">
       <div class="modal-window__wrapper">
         <h2>Регистрация</h2>
@@ -21,51 +21,55 @@
           <span class="visually-hidden">Закрыть</span>
         </button>
       </div>
-      <form class="main-form" action="post">
-        <ul class="main-form__list">
-          <li class="main-form__wrapper">
-            <label class="main-form__label" for="email">E-mail</label>
-            <input class="main-form__input" type="email" name="email" id="email">
-            <p class="main-form__input-note main-form__input-note--hidden">
-              Введите корректный адрес e-mail<br><br>
+      <form class="form" action="post">
+        <ul class="form__list">
+          <li class="form__field-wrapper">
+            <label class="form__label" for="email">E-mail</label>
+            <input class="form__input" type="email" name="email" id="email">
+            <ul class="form__message-wrapper">
+              <li class="form__message hidden-message">
+                Введите корректный адрес e-mail<br><br>
+              </li>
+            </ul>
+          </li>
+          <li class="form__field-wrapper">
+            <label class="form__label" for="nickname">Никнейм</label>
+            <input class="form__input" type="text" name="nickname" id="nickname">
+            <ul class="form__message-wrapper">
+              <li class="form__message hidden-message">
+                Имя должно начинаться с буквы и содержать только латинские буквы, цифры, _ , ;. Длина 3-40 символов
+              </li>
+            </ul>
+          </li>
+          <li class="form__field-wrapper">
+            <label class="form__label" for="password">Пароль</label>
+            <input class="form__input" type="password" name="password" id="password">
+            <p class="text-message">
+              Пароль должен содержать:
             </p>
+            <ul class="form__message-wrapper">
+              <li class="form__message list-message">от 6 идо 32 символов</li>
+              <li class="form__message list-message">цифру</li>
+              <li class="form__message list-message">заглавную и строчную буквы</li>
+            </ul>
           </li>
-          <li class="main-form__wrapper">
-            <label class="main-form__label" for="nickname">Никнейм</label>
-            <input class="main-form__input" type="text" name="nickname" id="nickname">
-            <p class="main-form__input-note main-form__input-note--hidden">
-              Имя должно начинаться с буквы и содержать только латинские буквы, цифры, _ , ;. Длина 3-40 символов
-            </p>
+          <li class="form__field-wrapper">
+            <label class="form__label" for="repeat">Пароль еще раз</label>
+            <input class="form__input" type="password" name="repeat" id="repeat">
+            <ul class="form__message-wrapper">
+              <li class="form__message hidden-message">
+                Пароли не совпадают
+              </li>
+            </ul>
           </li>
-          <li class="main-form__wrapper">
-            <label class="main-form__label" for="password">Пароль</label>
-            <input class="main-form__input" type="password" name="password" id="password">
-            <div>
-              <p class="main-form__input-note">
-                Пароль должен содержать:
-              </p>
-              <ul class="main-form__input-note main-form__note-list">
-                <li class="main-form__note-item">от 6 идо 32 символов</li>
-                <li class="main-form__note-item">цифру</li>
-                <li class="main-form__note-item">заглавную и строчную буквы</li>
-              </ul>
-            </div>
-          </li>
-          <li class="main-form__wrapper">
-            <label class="main-form__label" for="repeat">Пароль еще раз</label>
-            <input class="main-form__input" type="password" name="repeat" id="repeat">
-            <p class="main-form__input-note main-form__input-note--hidden">
-              Пароли не совпадают
-            </p>
-          </li>
-          <li class="main-form__wrapper main-form__wrapper--checkbox-wrapper">
-            <input type="checkbox" id="agreement">
+          <li class="form__field-wrapper">
+            <input class="form__agreement-checkbox" type="checkbox" name="agreement" id="agreement">
             <label class="checkbox-label" for="agreement">
               Я принимаю условия <a href="#">Пользовательского соглашения</a>
             </label>
           </li>
         </ul>
-        <button class="main-form__button button" type="submit">Зарегистрироваться</button>
+        <button class="form__button button" type="submit">Зарегистрироваться</button>
       </form>
     </div>
   </section>
